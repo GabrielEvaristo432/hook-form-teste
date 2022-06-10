@@ -14,9 +14,10 @@ import Option from "../../../components/Forms/Option"
 import Button from "../../../components/Forms/Button"
 import Tabs from "../../../components/Tabs"
 import MaskInput from "../../../components/Forms/MaskInput"
+import Message from "../../../components/Message";
 import { useState } from "react"
-// import escolasService from "../../../services/escolas"
-// import { ReactComponent as ArrowRight } from '../../../assets/arrow-right.svg'
+import escolasService from "../../../services/escolas"
+import axios from "axios";
 
 function Identificacao(){
 
@@ -34,7 +35,11 @@ function Identificacao(){
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const onSubmit = data => console.log(data);
 
-  console.log(watch("example"));
+  const rota = "identificacao"
+
+  async function Cadastrar (data) {
+    await escolasService.adicionar(data, rota)
+  }
 
   return(
     <div>
@@ -45,31 +50,45 @@ function Identificacao(){
       </HeaderForm>
 
       <Form
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit((e) => Cadastrar(e))}
       >
-        
-        <FormItem>
-          <Label></Label>
-          <Input
-            style={{ width: '300px' }}
-            defaultValue="test"
-            placeholder="Digite aqui"
-            {...register("example")}
-          />
-        </FormItem>
-        
-        <FormItem>
-          <Input
-            style={{ width: '300px' }}
-            defaultValue="test"
-            placeholder="Digite aqui"
-            {...register("exampleRequired", { required: true })}
-          />
-        </FormItem>
-        
-        {errors.exampleRequired && <span>This field is required</span>}
 
-        <Input type="submit" />
+        {errors.login &&
+          <Message warning>
+            O campo login é obrigatório
+          </Message>
+        }
+
+        {errors.senha &&
+          <Message warning>
+            O campo senha é obrigatório
+          </Message>
+        }
+
+        <FormItem>
+          <Label>Login</Label>
+          <Input
+            style={{ width: '300px' }}
+            placeholder="E-mail ou nome de usuário"
+            {...register("login", { required: true })}
+          />
+        </FormItem>
+        
+        <FormItem>
+          <Label>Senha</Label>
+          <Input
+            style={{ width: '300px' }}
+            type="password"
+            placeholder="Digite sua senha"
+            {...register("senha", { required: true })}
+          />
+        </FormItem>
+
+        
+
+        <Button type="submit">
+          Cadastrar
+        </Button>
       </Form>
     </div>
   )

@@ -30,56 +30,35 @@ function Contato(){
     { "id": 8, "titulo": "8) Organização escolar", "link": "/escolas/organizacao-escolar" }
   ]
 
-  const[telefones, setTelefones] = useState([])
+  const[outrosTelefones, setOutrosTelefones] = useState([])
   const[tipos, setTipos] = useState([])
-  const[emails, setEmails] = useState([])
+  const[outrosEmails, setOutrosEmails] = useState([])
 
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const onSubmit = data => console.log(data);
 
-  console.log(
-    watch(telefones, tipos, emails)
-  );
-
-  // async function atualizar (e) {
-  //   e.preventDefault()
-
-  //   const escola = {
-  //     telefones: telefones,
-  //     // tipo1: tipo1,
-  //     // tipo2: tipo2,
-  //     // tipo3: tipo3,
-  //     emails: emails
-  //   }
-
-
-  //   await escolasService.atualizar(escola, "id")
+  const rota = "contato"
+  
+  // const Contato = {
+  //   telefonePrincipal: data.telefonePrincipal,
+  //   tipoTelefonePrincipal: data.tipoTelefonePrincipal,
+  //   outrosTelefones: outrosTelefones,
+  //   emailPrincipal: data.emailPrincipal,
+  //   outrosEmails: outrosEmails
   // }
 
-  // function cadastroTelefone () {
-  //   return(
-  //     <FormGroup>
-  //       <FormItem>
-  //         <Input
-  //           id="telefone"
-  //           placeholder="Ex.: (00)90000-0000"
-  //           style={{ width: '653px' }}
-  //           // value={telefones}
-  //           type="tel"
-  //           onChange={e => {
-  //             const fone = e.target.value
-  //             if (fone.length === 14) {
-  //               setTelefones([...telefones, fone])
-  //             } else {
-  //               <div>Tá errado corno</div>
-  //             }
+  // async function Inserir (data) {
+  //   setOutrosTelefones([...outrosTelefones, data.telefone2])
+  //   setOutrosTelefones([...outrosTelefones, data.telefone3])
+  //   setOutrosEmails([...outrosEmails, data.email2])
+  //   setOutrosEmails([...outrosEmails, data.email3])
 
-  //           }}
-  //         />
-  //       </FormItem>
-  //     </FormGroup>
-  //   )
+    
   // }
+
+  async function Cadastrar (data) {
+    await escolasService.adicionar(data, rota)
+  }
 
   return(
     <>
@@ -90,7 +69,7 @@ function Contato(){
       </HeaderForm>
 
       <Form
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit((e) => Cadastrar(e))}
       >        
         <FormGroup>
           {/* {console.log(emails)} */}
@@ -102,16 +81,23 @@ function Contato(){
             >
               Contatos telefônicos *
             </Label>
-            <MaskInput
+            <Input
               id="telefone"
               placeholder="Ex.: (00)90000-0000"
               mask="(99)99999-9999"
               type="tel"
-              {...register('telefone1')}
+              style={{ width: '300px' }}
+              // {...register('telefonePrincipal', { required: true })}
+              
+              // onInput={(e) => {
+              //   const numero = e.target.value
+              //   setOutrosTelefones([...outrosTelefones, numero])
+              //   console.log(outrosTelefones)
+              // }}
             />
           </FormItem>
 
-          <FormItem>
+          {/* <FormItem>
             <Label 
               htmlFor="tipos"
               style={{
@@ -122,82 +108,59 @@ function Contato(){
             </Label>
             <Select
               id="tipos"
-              value={tipos}
-              // style={{ width: '440.85px' }}
-              onChange={e => {
-                setTipos([...tipos, e.target.value])
-              }}
+              {...register('tipoTelefonePrincipal', { required: true })}
             >
               <Option value="celular">Celular</Option>
               <Option value="telefone-fixo">Telefone fixo</Option>
             </Select>
-          </FormItem>
+          </FormItem> */}
         </FormGroup>
 
         <FormGroup>
           <FormItem>
-            <MaskInput
+            <Input
               id="telefone"
               placeholder="Ex.: (00)90000-0000"
               mask="(99)99999-9999"
               type="tel"
-              onChange={e => {
-                const fone = e.target.value
-                if (fone.length === 14){
-                  setTelefones([...telefones, fone])
-                } else {
-                  console.log("Quantidade de caracteres incorreta")
-                }
-                
-              }}
+              style={{ width: '300px' }}
+              {...register('telefone2')}
+              
             />
           </FormItem>
 
-          <FormItem>
+          {/* <FormItem>
             <Select
               id="tipos"
-              value={tipos}
-              onChange={e => {
-                setTipos([...tipos, e.target.value])
-              }}
+              {...register('tipo2')}
             >
               <Option value="celular">Celular</Option>
               <Option value="telefone-fixo">Telefone fixo</Option>
             </Select>
-          </FormItem>
+          </FormItem> */}
         </FormGroup>
 
         <FormGroup>
           <FormItem>
-            <MaskInput
+            <Input
               id="telefone"
               placeholder="Ex.: (00)90000-0000"
               mask="(99)99999-9999"
               type="tel"
-              onChange={e => {
-                const fone = e.target.value
-                if (fone.length === 14){
-                  setTelefones([...telefones, fone])
-                } else {
-                  console.log("Quantidade de caracteres incorreta")
-                }
-                
-              }}
+              style={{ width: '300px' }}
+              {...register('telefone3')}
             />
           </FormItem>
 
-          <FormItem>
+          {/* <FormItem>
             <Select
               id="tipos"
-              value={tipos}
-              onChange={e => {
-                setTipos([...tipos, e.target.value])
-              }}
+              {...register('tipo3')}
             >
               <Option value="celular">Celular</Option>
               <Option value="telefone-fixo">Telefone fixo</Option>
             </Select>
-          </FormItem>
+          </FormItem> */}
         </FormGroup>
 
         <FormGroup>
@@ -229,9 +192,7 @@ function Contato(){
             <Input 
               id="email"
               placeholder="seuemail@provedor.com"
-              onChange={e => {
-                setEmails([...emails, e.target.value])
-              }}
+              {...register('emailPrincipal', { required: true })}
             />
           </FormItem>
         </FormGroup>            
@@ -242,15 +203,7 @@ function Contato(){
             <Input
               id="email"
               placeholder="seuemail@provedor.com"
-              onChange={e => {
-                const email =  e.target.value
-                if(email.includes("@")){
-                  setEmails([...emails, email])
-                } else {
-                  console.log('não')
-                }
-                
-              }}
+              {...register('email2')}
             />
           </FormItem>
         </FormGroup>
@@ -261,9 +214,7 @@ function Contato(){
             <Input
               id="email"
               placeholder="seuemail@provedor.com"
-              onChange={e => {
-                setEmails([...emails, e.target.value])
-              }}
+              {...register('email3')}
             />
           </FormItem>
         </FormGroup>
@@ -302,6 +253,13 @@ function Contato(){
                 Voltar
               </Button>
             </Link>
+
+            <Button 
+              type="submit"
+              style={{ backgroundColor: 'green' }}
+            >
+              Cadastrar
+            </Button>
           </FormItem>
         </FormGroup>
 

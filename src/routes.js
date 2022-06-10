@@ -21,6 +21,7 @@ import Header from './components/Header'
 import Menu from './components/Menu'
 import Container from './components/Container'
 import MainContainer from './components/MainContainer'
+import Contato from './pages/escolas/cadastro/Contato'
 
 function AppRouter(){
 
@@ -37,6 +38,7 @@ function AppRouter(){
               <Route path='/disciplinas' element={<ListarDisciplinas />} />
               <Route path='/escolas' element={<ListarEscolas />} />
               <Route path='/escolas/identificacao' element={<Identificacao />} />
+              <Route path='/escolas/contato' element={<Contato />} />
               <Route path='/funcionarios' element={<ListarFuncionarios />} />
               <Route path='/habilidades' element={<ListarHabilidades />} />
               <Route path='/objeto-do-conhecimento' element={<ListarObjetosDoConhecimento />} />

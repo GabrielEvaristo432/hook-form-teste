@@ -1,0 +1,78 @@
+{
+  "identificacao": [
+    {
+      "login": "NoobMaster69",
+      "senha": "444444-",
+      "id": 1
+    },
+    {
+      "login": "slave332",
+      "senha": "2937295682",
+      "id": 2
+    },
+    {
+      "login": "rogerin",
+      "senha": "69696969696969",
+      "id": 3
+    },
+    {
+      "login": "teste",
+      "senha": "teste",
+      "id": 4
+    }
+  ],
+  "contato": [
+    {
+      "telefonePrincipal": "(68)98771-0425",
+      "outrosTelefones": [],
+      "emailPrincipal": "escola@gov.com",
+      "outrosEmails": [],
+      "id": 1
+    },
+    {
+      "telefonePrincipal": "(68)98771-0425",
+      "outrosTelefones": [
+        "(11)98201-6622"
+      ],
+      "emailPrincipal": "escola@gov.com",
+      "outrosEmails": [
+        "alas@gmail.com"
+      ],
+      "id": 2
+    },
+    {
+      "telefonePrincipal": "(68)98771-0425",
+      "outrosTelefones": [
+        "(11)98201-6622",
+        "(11)98201-6622"
+      ],
+      "emailPrincipal": "escola@gov.com",
+      "outrosEmails": [
+        "alas@gmail.com",
+        "alas@gmail.com"
+      ],
+      "id": 3
+    },
+    {
+      "telefonePrincipal": "2345235",
+      "outrosTelefones": [],
+      "emailPrincipal": "dfxdfdfg",
+      "outrosEmails": [],
+      "id": 4
+    },
+    {
+      "telefonePrincipal": "2345235",
+      "outrosTelefones": [],
+      "emailPrincipal": "dfxdfdfg",
+      "outrosEmails": [],
+      "id": 5
+    },
+    {
+      "telefonePrincipal": "2345235",
+      "outrosTelefones": [],
+      "emailPrincipal": "dfxdfdfg",
+      "outrosEmails": [],
+      "id": 6
+    }
+  ]
+}
