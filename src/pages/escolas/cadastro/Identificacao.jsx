@@ -50,7 +50,7 @@ function Identificacao(){
       </HeaderForm>
 
       <Form
-        onSubmit={handleSubmit((e) => Cadastrar(e))}
+        onSubmit={handleSubmit((data) => Cadastrar(data))}
       >
 
         {errors.login &&

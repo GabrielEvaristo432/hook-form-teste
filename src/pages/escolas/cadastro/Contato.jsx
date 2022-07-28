@@ -38,26 +38,15 @@ function Contato(){
   const onSubmit = data => console.log(data);
 
   const rota = "contato"
-  
-  // const Contato = {
-  //   telefonePrincipal: data.telefonePrincipal,
-  //   tipoTelefonePrincipal: data.tipoTelefonePrincipal,
-  //   outrosTelefones: outrosTelefones,
-  //   emailPrincipal: data.emailPrincipal,
-  //   outrosEmails: outrosEmails
-  // }
-
-  // async function Inserir (data) {
-  //   setOutrosTelefones([...outrosTelefones, data.telefone2])
-  //   setOutrosTelefones([...outrosTelefones, data.telefone3])
-  //   setOutrosEmails([...outrosEmails, data.email2])
-  //   setOutrosEmails([...outrosEmails, data.email3])
-
-    
-  // }
 
   async function Cadastrar (data) {
-    await escolasService.adicionar(data, rota)
+    await escolasService.adicionar({
+      telefonePrincipal: data.telefonePrincipal,
+      tipoTelefonePrincipal: data.tipoTelefonePrincipal,
+      emailPrincipal: data.emailPrincipal,
+      outrosTelefones: [{telefone: data.telefone2, tipo: data.tipo2}, {telefone: data.telefone3, tipo: data.tipo3}],
+      outrosEmails: [data.email2, data.email3]
+    }, rota)
   }
 
   return(
@@ -87,17 +76,11 @@ function Contato(){
               mask="(99)99999-9999"
               type="tel"
               style={{ width: '300px' }}
-              // {...register('telefonePrincipal', { required: true })}
-              
-              // onInput={(e) => {
-              //   const numero = e.target.value
-              //   setOutrosTelefones([...outrosTelefones, numero])
-              //   console.log(outrosTelefones)
-              // }}
+              {...register('telefonePrincipal', { required: true })}
             />
           </FormItem>
 
-          {/* <FormItem>
+          <FormItem>
             <Label 
               htmlFor="tipos"
               style={{
@@ -113,7 +96,7 @@ function Contato(){
               <Option value="celular">Celular</Option>
               <Option value="telefone-fixo">Telefone fixo</Option>
             </Select>
-          </FormItem> */}
+          </FormItem>
         </FormGroup>
 
         <FormGroup>
@@ -125,11 +108,10 @@ function Contato(){
               type="tel"
               style={{ width: '300px' }}
               {...register('telefone2')}
-              
             />
           </FormItem>
 
-          {/* <FormItem>
+          <FormItem>
             <Select
               id="tipos"
               {...register('tipo2')}
@@ -137,7 +119,7 @@ function Contato(){
               <Option value="celular">Celular</Option>
               <Option value="telefone-fixo">Telefone fixo</Option>
             </Select>
-          </FormItem> */}
+          </FormItem>
         </FormGroup>
 
         <FormGroup>
@@ -152,7 +134,7 @@ function Contato(){
             />
           </FormItem>
 
-          {/* <FormItem>
+          <FormItem>
             <Select
               id="tipos"
               {...register('tipo3')}
@@ -160,7 +142,7 @@ function Contato(){
               <Option value="celular">Celular</Option>
               <Option value="telefone-fixo">Telefone fixo</Option>
             </Select>
-          </FormItem> */}
+          </FormItem>
         </FormGroup>
 
         <FormGroup>

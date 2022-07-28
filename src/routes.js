@@ -11,6 +11,7 @@ import ListarPraticasDeLinguagem from './pages/praticas-de-linguagem/ListarPrati
 import ListarResponsaveis from './pages/responsaveis/ListarResponsaveis'
 import ListarTurmas from './pages/turmas/ListarTurmas'
 import Identificacao from './pages/escolas/cadastro/Identificacao'
+import OutrasInformacoes from './pages/escolas/cadastro/OutrasInformacoes'
 import Relatorios from "./pages/relatorios"
 import Conta from "./pages/conta"
 import ListarExemplo from './pages/exemplo/ListarExemplo'
@@ -39,6 +40,7 @@ function AppRouter(){
               <Route path='/escolas' element={<ListarEscolas />} />
               <Route path='/escolas/identificacao' element={<Identificacao />} />
               <Route path='/escolas/contato' element={<Contato />} />
+              <Route path='/escolas/outras-informacoes' element={<OutrasInformacoes />} />
               <Route path='/funcionarios' element={<ListarFuncionarios />} />
               <Route path='/habilidades' element={<ListarHabilidades />} />
               <Route path='/objeto-do-conhecimento' element={<ListarObjetosDoConhecimento />} />

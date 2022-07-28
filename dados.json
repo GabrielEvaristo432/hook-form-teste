@@ -73,6 +73,46 @@
       "emailPrincipal": "dfxdfdfg",
       "outrosEmails": [],
       "id": 6
+    },
+    {
+      "telefonePrincipal": "(69)99955-7899",
+      "tipoTelefonePrincipal": "celular",
+      "emailPrincipal": "escola@escola.com",
+      "outrosTelefones": [
+        {
+          "telefone": "",
+          "tipo": "telefone-fixo"
+        },
+        {
+          "telefone": "(68)98701-2245",
+          "tipo": "celular"
+        }
+      ],
+      "outrosEmails": [
+        "diretorafa@gmail.com",
+        "conselhoescolar@outlook.com"
+      ],
+      "id": 7
+    },
+    {
+      "telefonePrincipal": "(69)99955-7899",
+      "tipoTelefonePrincipal": "celular",
+      "emailPrincipal": "cu@escola.com",
+      "outrosTelefones": [
+        {
+          "telefone": "(69)93322-4554",
+          "tipo": "telefone-fixo"
+        },
+        {
+          "telefone": "(68)98701-2245",
+          "tipo": "celular"
+        }
+      ],
+      "outrosEmails": [
+        "diretorafa@gmail.com",
+        "conselhoescolar@outlook.com"
+      ],
+      "id": 8
     }
   ]
 }
