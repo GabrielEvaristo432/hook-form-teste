@@ -11,21 +11,9 @@ import Select from "../../../components/Forms/Select"
 import Option from "../../../components/Forms/Option"
 import Button from "../../../components/Forms/Button"
 import Checkbox from "../../../components/Forms/Checkbox"
-import Tabs from "../../../components/Tabs"
 import { useState } from "react"
 
 function OutrasInformacoes(){
-
-  const tabs = [
-    { "id": 1, "titulo": "1) Identificação", "link": "/escolas/identificacao" },
-    { "id": 2, "titulo": "2) Contato", "link": "/escolas/contato" },
-    { "id": 3, "titulo": "3) Outras informações", "link": "/escolas/outras-informacoes", "atual": "atual" },
-    { "id": 4, "titulo": "4) Caracterização e infraestrutura", "link": "/escolas/infraestrutura" },
-    { "id": 5, "titulo": "5) Equipamentos", "link": "/escolas/equipamento" },
-    { "id": 6, "titulo": "6) Recursos Humanos", "link": "/escolas/recursos-humanos" },
-    { "id": 7, "titulo": "7) Alimentação escolar - PNAE/FNDE", "link": "/escolas/alimentacao-escolar" },
-    { "id": 8, "titulo": "8) Organização escolar", "link": "/escolas/organizacao-escolar" }
-  ]
 
   const[codigoRegional, setCodigoRegional] = useState()
   const[nomeRegional, setNomeRegional] = useState("")
@@ -43,7 +31,6 @@ function OutrasInformacoes(){
       <HeaderForm>
         <Title>Cadastrar escola</Title>
         <SubTitle>Escola</SubTitle>
-        <Tabs tabs={tabs} />
       </HeaderForm>
 
       <Form>

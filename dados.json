@@ -1,118 +1,14 @@
 {
   "identificacao": [
     {
-      "login": "NoobMaster69",
-      "senha": "444444-",
+      "login": "escola1@outlook.com",
+      "senha": "25246346",
+      "telefonePrincipal": "(69)99995-0099",
+      "outrosTelefones": [
+        "(69)3331-4567",
+        "(68)98100-2365"
+      ],
       "id": 1
-    },
-    {
-      "login": "slave332",
-      "senha": "2937295682",
-      "id": 2
-    },
-    {
-      "login": "rogerin",
-      "senha": "69696969696969",
-      "id": 3
-    },
-    {
-      "login": "teste",
-      "senha": "teste",
-      "id": 4
-    }
-  ],
-  "contato": [
-    {
-      "telefonePrincipal": "(68)98771-0425",
-      "outrosTelefones": [],
-      "emailPrincipal": "escola@gov.com",
-      "outrosEmails": [],
-      "id": 1
-    },
-    {
-      "telefonePrincipal": "(68)98771-0425",
-      "outrosTelefones": [
-        "(11)98201-6622"
-      ],
-      "emailPrincipal": "escola@gov.com",
-      "outrosEmails": [
-        "alas@gmail.com"
-      ],
-      "id": 2
-    },
-    {
-      "telefonePrincipal": "(68)98771-0425",
-      "outrosTelefones": [
-        "(11)98201-6622",
-        "(11)98201-6622"
-      ],
-      "emailPrincipal": "escola@gov.com",
-      "outrosEmails": [
-        "alas@gmail.com",
-        "alas@gmail.com"
-      ],
-      "id": 3
-    },
-    {
-      "telefonePrincipal": "2345235",
-      "outrosTelefones": [],
-      "emailPrincipal": "dfxdfdfg",
-      "outrosEmails": [],
-      "id": 4
-    },
-    {
-      "telefonePrincipal": "2345235",
-      "outrosTelefones": [],
-      "emailPrincipal": "dfxdfdfg",
-      "outrosEmails": [],
-      "id": 5
-    },
-    {
-      "telefonePrincipal": "2345235",
-      "outrosTelefones": [],
-      "emailPrincipal": "dfxdfdfg",
-      "outrosEmails": [],
-      "id": 6
-    },
-    {
-      "telefonePrincipal": "(69)99955-7899",
-      "tipoTelefonePrincipal": "celular",
-      "emailPrincipal": "escola@escola.com",
-      "outrosTelefones": [
-        {
-          "telefone": "",
-          "tipo": "telefone-fixo"
-        },
-        {
-          "telefone": "(68)98701-2245",
-          "tipo": "celular"
-        }
-      ],
-      "outrosEmails": [
-        "diretorafa@gmail.com",
-        "conselhoescolar@outlook.com"
-      ],
-      "id": 7
-    },
-    {
-      "telefonePrincipal": "(69)99955-7899",
-      "tipoTelefonePrincipal": "celular",
-      "emailPrincipal": "cu@escola.com",
-      "outrosTelefones": [
-        {
-          "telefone": "(69)93322-4554",
-          "tipo": "telefone-fixo"
-        },
-        {
-          "telefone": "(68)98701-2245",
-          "tipo": "celular"
-        }
-      ],
-      "outrosEmails": [
-        "diretorafa@gmail.com",
-        "conselhoescolar@outlook.com"
-      ],
-      "id": 8
     }
   ]
 }

@@ -11,23 +11,23 @@ import Select from "../../components/Forms/Select"
 import Option from "../../components/Forms/Option"
 import Textarea from "../../components/Forms/TextArea"
 import Button from "../../components/Forms/Button"
-import Tabs from "../../components/Tabs"
+// import Tabs from "../../components/Tabs"
 
 function FormularioPasso3(){
 
   // Informações sobre as abas
-  const tabs = [
-    { "id": 1, "titulo": "1) Início", "link": "/exemplo/passo1" },
-    { "id": 2, "titulo": "2) Identificação", "link": "/exemplo/passo2" },
-    { "id": 3, "titulo": "3) Documentos", "link": "/exemplo/passo3","atual": "atual" },
-  ]
+  // const tabs = [
+  //   { "id": 1, "titulo": "1) Início", "link": "/exemplo/passo1" },
+  //   { "id": 2, "titulo": "2) Identificação", "link": "/exemplo/passo2" },
+  //   { "id": 3, "titulo": "3) Documentos", "link": "/exemplo/passo3","atual": "atual" },
+  // ]
 
   return(
     <>
       <HeaderForm>
         <Title>Cadastrar funcionário</Title>
         <SubTitle>Funcionário da escola</SubTitle>
-        <Tabs tabs={tabs} />
+        {/* <Tabs tabs={tabs} /> */}
       </HeaderForm>
 
       <Form>

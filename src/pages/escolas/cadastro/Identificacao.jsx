@@ -1,6 +1,5 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom"
 import Title from "../../../components/Title"
 import SubTitle from "../../../components/SubTitle"
 import HeaderForm from "../../../components/HeaderForm"
@@ -12,33 +11,40 @@ import Input from "../../../components/Forms/Input"
 import Select from "../../../components/Forms/Select"
 import Option from "../../../components/Forms/Option"
 import Button from "../../../components/Forms/Button"
-import Tabs from "../../../components/Tabs"
+import Tab from "../../../components/Tab"
+import TabContent from "../../../components/TabContent"
+import TabItem from "../../../components/TabItem"
 import MaskInput from "../../../components/Forms/MaskInput"
 import Message from "../../../components/Message";
 import { useState } from "react"
 import escolasService from "../../../services/escolas"
-import axios from "axios";
+import { Link } from "react-router-dom"
 
 function Identificacao(){
 
-  const tabs = [
-    { "id": 1, "titulo": "1) Identificação", "link": "/escolas/identificacao", "atual": "atual" },
-    { "id": 2, "titulo": "2) Contato", "link": "/escolas/contato" },
-    { "id": 3, "titulo": "3) Outras informações", "link": "/escolas/outras-informacoes" },
-    { "id": 4, "titulo": "4) Caracterização e infraestrutura", "link": "/escolas/infraestrutura" },
-    { "id": 5, "titulo": "5) Equipamentos", "link": "/escolas/equipamentos" },
-    { "id": 6, "titulo": "6) Recursos Humanos", "link": "/escolas/recursos-humanos" },
-    { "id": 7, "titulo": "7) Alimentação escolar - PNAE/FNDE", "link": "/escolas/alimentacao-escolar" },
-    { "id": 8, "titulo": "8) Organização escolar", "link": "/escolas/organizacao-escolar" }
-  ]
+  const [activeTab, setActiveTab] = useState("tab1")
+  const handleTab = (tabName) => setActiveTab(tabName)
 
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+  
+  const[login, setLogin] = useState("")
+  const[senha, setSenha] = useState("")
+
+  const[telefone1, setTelefone1] = useState("")
+  const[telefone2, setTelefone2] = useState("")
+  const[telefone3, setTelefone3] = useState("")
 
   const rota = "identificacao"
 
   async function Cadastrar (data) {
-    await escolasService.adicionar(data, rota)
+    const escola = {
+      login: data.login,
+      senha: data.senha,
+      telefonePrincipal: data.telefone1,
+      outrosTelefones: [data.telefone2, data.telefone3]
+    }
+
+    await escolasService.adicionar(escola, rota)
   }
 
   return(
@@ -46,45 +52,149 @@ function Identificacao(){
       <HeaderForm>
         <Title>Cadastrar escola</Title>
         <SubTitle>Escola</SubTitle>
-        <Tabs tabs={tabs}  />
+        <Tab>
+          <TabItem
+            onClick={() => handleTab("tab1")}
+            active={activeTab === "tab1" ? "active" : ""}>
+            Identificação
+          </TabItem>
+
+          <TabItem
+            onClick={() => handleTab("tab2")}
+            active={activeTab === "tab2" ? "active" : ""}>
+            Contato
+          </TabItem>
+
+          {/* <TabItem
+            onClick={() => handleTab("tab3")}
+            active={activeTab === "tab3" ? "active" : ""}>
+            Outras informações
+          </TabItem>
+
+          <TabItem
+            onClick={() => handleTab("tab4")}
+            active={activeTab === "tab4" ? "active" : ""}>
+            Caracterização e infraestrutura
+          </TabItem>
+
+          <TabItem
+            onClick={() => handleTab("tab5")}
+            active={activeTab === "tab5" ? "active" : ""}>
+            Equipamentos
+          </TabItem>
+          <TabItem
+            onClick={() => handleTab("tab6")}
+            active={activeTab === "tab6" ? "active" : ""}>
+            Recursos humanos
+          </TabItem>
+
+          <TabItem
+            onClick={() => handleTab("tab7")}
+            active={activeTab === "tab3" ? "active" : ""}>
+            Alimentação Escolar
+          </TabItem>
+
+          <TabItem
+            onClick={() => handleTab("tab8")}
+            active={activeTab === "tab3" ? "active" : ""}>
+            Organização Escolar
+          </TabItem> */}
+        </Tab>
       </HeaderForm>
 
-      <Form
-        onSubmit={handleSubmit((data) => Cadastrar(data))}
-      >
+      <Form onSubmit={handleSubmit(data => Cadastrar(data))}>
+        <TabContent showTab={activeTab === "tab1" ? "showTab" : ""}>
+          <FormGroup>
+            <FormItem>
+              <Label>
+                Login
+              </Label>
+              <Input
+                id="login"
+                placeholder="E-mail ou nome de usuário"
+                {...register("login", {required: true})}
+              />
+            </FormItem>
+          </FormGroup>
 
-        {errors.login &&
-          <Message warning>
-            O campo login é obrigatório
-          </Message>
-        }
+          <FormGroup>
+            <FormItem>
+              <Label>
+                Senha
+              </Label>
+              <Input
+                id="senha"
+                placeholder="Digite aqui"
+                type="password"
+                {...register("senha", {required: true})}
+              />
+            </FormItem>
+          </FormGroup>
 
-        {errors.senha &&
-          <Message warning>
-            O campo senha é obrigatório
-          </Message>
-        }
-
-        <FormItem>
-          <Label>Login</Label>
-          <Input
-            style={{ width: '300px' }}
-            placeholder="E-mail ou nome de usuário"
-            {...register("login", { required: true })}
-          />
-        </FormItem>
+          <FormGroup>
+            <FormItem flexd>
+              <Button onClick={(e) => {
+                e.preventDefault()
+                handleTab("tab2")
+              }}>
+                Avançar
+              </Button>
+              
+              <Button onClick={(e) => {
+                e.preventDefault()
+                handleTab("tab1")
+              }}>
+                Voltar
+              </Button>
+            </FormItem>
+          </FormGroup>
+        </TabContent>
         
-        <FormItem>
-          <Label>Senha</Label>
-          <Input
-            style={{ width: '300px' }}
-            type="password"
-            placeholder="Digite sua senha"
-            {...register("senha", { required: true })}
-          />
-        </FormItem>
+        <TabContent showTab={activeTab === "tab2" ? "showTab" : ""}>
+          <FormGroup>
+            <FormItem>
+              <Label
+                htmlFor="telefone"
+              >
+                Contatos telefônicos *
+              </Label>
+              <Input
+                id="telefone"
+                placeholder="Ex.: (00)90000-0000"
+                // mask="(99)99999-9999"
+                type="tel"
+                style={{ width: '300px' }}
+                {...register("telefone1", {required: true})}
+              />
+            </FormItem>
+          </FormGroup>
 
-        
+          <FormGroup>
+            <FormItem>
+              <Input
+                id="telefone"
+                placeholder="Ex.: (00)90000-0000"
+                // mask="(99)99999-9999"
+                type="tel"
+                style={{ width: '300px' }}
+                {...register("telefone2")}
+              />
+            </FormItem>
+          </FormGroup>
+
+          <FormGroup>
+            <FormItem>
+              <Input
+                id="telefone"
+                placeholder="Ex.: (00)90000-0000"
+                // mask="(99)99999-9999"
+                type="tel"
+                style={{ width: '300px' }}
+                {...register("telefone3")}
+              />
+            </FormItem>
+          </FormGroup>
+        </TabContent>
 
         <Button type="submit">
           Cadastrar

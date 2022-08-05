@@ -13,16 +13,16 @@ import Option from "../../components/Forms/Option"
 import Textarea from "../../components/Forms/TextArea"
 import Button from "../../components/Forms/Button"
 import Checkbox from "../../components/Forms/Checkbox"
-import Tabs from "../../components/Tabs"
+// import Tabs from "../../components/Tabs"
 
 function FormularioPasso1(){
 
   // Informações sobre as abas
-  const tabs = [
-    { "id": 1, "titulo": "1) Início", "link": "/exemplo/passo1", "atual": "atual" },
-    { "id": 2, "titulo": "2) Identificação", "link": "/exemplo/passo2" },
-    { "id": 3, "titulo": "3) Documentos", "link": "/exemplo/passo3" },
-  ]
+  // const tabs = [
+  //   { "id": 1, "titulo": "1) Início", "link": "/exemplo/passo1", "atual": "atual" },
+  //   { "id": 2, "titulo": "2) Identificação", "link": "/exemplo/passo2" },
+  //   { "id": 3, "titulo": "3) Documentos", "link": "/exemplo/passo3" },
+  // ]
 
   return(
     <>
@@ -30,7 +30,7 @@ function FormularioPasso1(){
       <HeaderForm>
         <Title>Cadastrar funcionário</Title>
         <SubTitle>Funcionário da escola</SubTitle>
-        <Tabs tabs={tabs} />
+        {/* <Tabs tabs={tabs} /> */}
       </HeaderForm>
 
       <Form>

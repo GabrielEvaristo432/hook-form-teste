@@ -5,8 +5,8 @@ async function listar () {
 
 }
 
-async function adicionar ({telefonePrincipal, tipoTelefonePrincipal, emailPrincipal, outrosTelefones, outrosEmails}, rota) {
-  const response = await axios.post(`${urlApi}/${rota}`, {telefonePrincipal, tipoTelefonePrincipal, emailPrincipal, outrosTelefones, outrosEmails})
+async function adicionar (escola, rota) {
+  const response = await axios.post(`${urlApi}/${rota}`, escola)
   return response
 }
 
